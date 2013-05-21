@@ -3,12 +3,11 @@
 //  XMLParsing
 //
 //  Created by Martin Andonovski on 4/9/13.
-//  Copyright (c) 2013 Spire. All rights reserved.
+//  Copyright (c) 2013 Мartin. All rights reserved.
 //
 
 #import "XMLParserDelegate.h"
 #import "XMLParsingAppDelegate.h"
-#import "Row.h"
 @implementation XMLParserDelegate
 @synthesize row,rows,rowValues;
 
@@ -65,7 +64,6 @@
             // The parser hit one of the element values.
             // This syntax is possible because User object
             // property names match the XML user element names
-            [row setValue:currentElementValue forKey:elementName];
             [rowValues setObject:currentElementValue forKey:elementName];
             NSLog(@"%@",rowValues);
         }

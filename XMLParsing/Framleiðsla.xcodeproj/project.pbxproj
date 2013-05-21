@@ -27,7 +27,6 @@
 		8B312AFC171405A300904A7D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B312AFB171405A300904A7D /* Default-568h@2x.png */; };
 		8B312AFF171405A300904A7D /* XMLParsingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B312AFE171405A300904A7D /* XMLParsingViewController.m */; };
 		8B312B02171405A300904A7D /* XMLParsingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B312B00171405A300904A7D /* XMLParsingViewController.xib */; };
-		8B312B0A1714064500904A7D /* Row.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B312B091714064500904A7D /* Row.m */; };
 		8B312B0D1714073800904A7D /* XMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B312B0C1714073800904A7D /* XMLParserDelegate.m */; };
 		8B7F57A717141DE300F6CA9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7F57A617141DE300F6CA9E /* QuartzCore.framework */; };
 		8B7F7BCE1714326900F6CA9E /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7F7BCD1714326900F6CA9E /* libCorePlot-CocoaTouch.a */; };
@@ -67,8 +66,6 @@
 		8B312AFD171405A300904A7D /* XMLParsingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLParsingViewController.h; sourceTree = "<group>"; };
 		8B312AFE171405A300904A7D /* XMLParsingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLParsingViewController.m; sourceTree = "<group>"; };
 		8B312B01171405A300904A7D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/XMLParsingViewController.xib; sourceTree = "<group>"; };
-		8B312B081714064500904A7D /* Row.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Row.h; sourceTree = "<group>"; };
-		8B312B091714064500904A7D /* Row.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Row.m; sourceTree = "<group>"; };
 		8B312B0C1714073800904A7D /* XMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParserDelegate.m; sourceTree = "<group>"; };
 		8B7F57A617141DE300F6CA9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8B7F7B7E171431DA00F6CA9E /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
@@ -230,8 +227,6 @@
 				8B312AFE171405A300904A7D /* XMLParsingViewController.m */,
 				8B312B00171405A300904A7D /* XMLParsingViewController.xib */,
 				598C480E174226CD00FAFE72 /* MainView.xib */,
-				8B312B081714064500904A7D /* Row.h */,
-				8B312B091714064500904A7D /* Row.m */,
 				598C48181742273F00FAFE72 /* XMLParserDelegate.h */,
 				8B312B0C1714073800904A7D /* XMLParserDelegate.m */,
 				8B1EFF7E173A8CCE008E162E /* XMLParsingFirst.h */,
@@ -423,7 +418,6 @@
 			files = (
 				8B312AF6171405A300904A7D /* XMLParsingAppDelegate.m in Sources */,
 				8B312AFF171405A300904A7D /* XMLParsingViewController.m in Sources */,
-				8B312B0A1714064500904A7D /* Row.m in Sources */,
 				8B312B0D1714073800904A7D /* XMLParserDelegate.m in Sources */,
 				8B1349901716FE9600DA31A7 /* Reachability.m in Sources */,
 				8B1EFF80173A8CCE008E162E /* XMLParsingFirst.m in Sources */,

@@ -3,7 +3,7 @@
 //  XMLParsing
 //
 //  Created by Martin Andonovski on 4/9/13.
-//  Copyright (c) 2013 Spire. All rights reserved.
+//  Copyright (c) 2013 Мartin. All rights reserved.
 //
 #define IS_IPHONE5 (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES)
 #import "XMLParsingAppDelegate.h"
