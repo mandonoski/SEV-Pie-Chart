@@ -356,6 +356,7 @@
         }
         
         if(countNumber==0){
+            //martin wrote this
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Some Title" message:@"\n\n\n\n" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
             
             UITextView *someTextView = [[UITextView alloc] initWithFrame:CGRectMake(15, 35, 250, 100)];
