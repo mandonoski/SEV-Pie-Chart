@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8B312AE1171405A300904A7D"
-               BuildableName = "SEV Orkufordeiling.app"
+               BuildableName = "Framlei&#240;sla.app"
                BlueprintName = "Framlei&#240;sla"
                ReferencedContainer = "container:Framlei&#240;sla.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8B312AE1171405A300904A7D"
-            BuildableName = "SEV Orkufordeiling.app"
+            BuildableName = "Framlei&#240;sla.app"
             BlueprintName = "Framlei&#240;sla"
             ReferencedContainer = "container:Framlei&#240;sla.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8B312AE1171405A300904A7D"
-            BuildableName = "SEV Orkufordeiling.app"
+            BuildableName = "Framlei&#240;sla.app"
             BlueprintName = "Framlei&#240;sla"
             ReferencedContainer = "container:Framlei&#240;sla.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8B312AE1171405A300904A7D"
-            BuildableName = "SEV Orkufordeiling.app"
+            BuildableName = "Framlei&#240;sla.app"
             BlueprintName = "Framlei&#240;sla"
             ReferencedContainer = "container:Framlei&#240;sla.xcodeproj">
          </BuildableReference>
