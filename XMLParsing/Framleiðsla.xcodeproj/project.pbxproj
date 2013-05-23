@@ -38,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		593E5AF7174E00F600094A46 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		597E1187174661CE00A9C0B2 /* MainView-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "MainView-iPad.xib"; path = "XMLParsing/iPad/MainView-iPad.xib"; sourceTree = "<group>"; };
 		598C480E174226CD00FAFE72 /* MainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainView.xib; sourceTree = "<group>"; };
 		598C48181742273F00FAFE72 /* XMLParserDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLParserDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +171,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		593E5AF9174E00F600094A46 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8BF775B41715785400DF8509 /* clock.png */,
+				8B8ACEA0171EB8B8000F04AE /* header.png */,
+				8B95830717217EF20009DA29 /* Beint.png */,
+				8B95830817217EF20009DA29 /* Leita.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		597E1186174661CD00A9C0B2 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,10 +228,8 @@
 		8B312AEB171405A300904A7D /* XMLParsing */ = {
 			isa = PBXGroup;
 			children = (
-				8BF775B41715785400DF8509 /* clock.png */,
-				8B8ACEA0171EB8B8000F04AE /* header.png */,
-				8B95830717217EF20009DA29 /* Beint.png */,
-				8B95830817217EF20009DA29 /* Leita.png */,
+				593E5AF9174E00F600094A46 /* Resources */,
+				593E5AF7174E00F600094A46 /* Constants.h */,
 				8B7F7B7D171431DA00F6CA9E /* CorePlotHeaders */,
 				8B312AF4171405A300904A7D /* XMLParsingAppDelegate.h */,
 				8B312AF5171405A300904A7D /* XMLParsingAppDelegate.m */,
