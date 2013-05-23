@@ -28,11 +28,12 @@
 
 @property(readwrite, retain, nonatomic) NSMutableArray *pieData;
 @property (nonatomic,retain) CPTXYGraph * graph;
+@property (strong, nonatomic) NSArray *arrayForLegend;
+
 -(void)reachabilityChanged:(NSNotification*)note;
 
 - (void) doParse:(NSData *)data;
 -(NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index;
-- (NSString *) platformString;
 -(void)initFunction;
 -(void)netAlert;
 -(void)onBtnDatePickerSave:(id)sender;

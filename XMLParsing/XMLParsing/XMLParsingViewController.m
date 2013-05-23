@@ -9,6 +9,8 @@
 #define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
 #define IS_IPHONE5 (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES)
 
+#define SETTING_URL ""
+
 #import "XMLParsingViewController.h"
 #import "XMLParsingAppDelegate.h"
 #import "XMLParsingFirst.h"
@@ -17,12 +19,11 @@
 #import "CorePlot-CocoaTouch.h"
 #import "CPTLegend.h"
 #import "Reachability.h"
+#import "Constants.h"
 @implementation XMLParsingViewController
 
 @synthesize graph,pieData;
-- (NSString *) platformString{
-    
-}
+
 - (void)drawRect:(CGRect)rect {
     UIImage *image = [UIImage imageNamed:@"header.png"];
     [image drawInRect:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -30,7 +31,7 @@
 
 -(void)initFunction{
     
-    NSURL *url = [NSURL URLWithString:@"https://w3.sev.fo/hagtol/xml/pie_app_def.xml"];
+    NSURL *url = [NSURL URLWithString:XML_WITH_COLORS_AND_MESSAGES];
     NSString *content = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     NSData* xmlData = [content dataUsingEncoding:NSUTF8StringEncoding];
     
@@ -49,7 +50,7 @@
     // test the result
     if (success) {
         
-        NSURL *url = [NSURL URLWithString:@"https://w3.sev.fo/hagtol/xml/fordeiling.xml"];
+        NSURL *url = [NSURL URLWithString:XML_WITH_VALUES];
         NSString *content = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
         NSData* mainXmlData = [content dataUsingEncoding:NSUTF8StringEncoding];
         [self doParse:mainXmlData];
@@ -59,7 +60,7 @@
 }
 -(void)searchByDate{
     
-    NSString *tempStr = [NSString stringWithFormat:@"https://w3.sev.fo/hagtol/xml/fordeiling.aspx?from=%@",dateString];
+    NSString *tempStr = [NSString stringWithFormat:XML_WITH_FROM_DATE,dateString];
     NSURL *url = [NSURL URLWithString:tempStr];
     NSString *content = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:nil];
     
@@ -330,7 +331,7 @@
             [valueArr addObject:newString];
             [keyArr addObject:key];
         }
-        
+        self.arrayForLegend = [NSArray arrayWithArray:valueArr];
         for (NSString *_number in valueArr) {
             
             NSString *stringValue = [_number stringByReplacingOccurrencesOfString:@"," withString:@"."];
@@ -362,7 +363,9 @@
 //Text for the Legend under the Pie Chart
 -(NSString *)legendTitleForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index{
     
-    NSString *returnString = [NSString stringWithFormat:@"%@ - %d%%",[keyArr objectAtIndex:index],[[valueArr objectAtIndex:index]intValue]];
+    float percents = [[[self.arrayForLegend objectAtIndex:index] stringByReplacingOccurrencesOfString:@"," withString:@"."] floatValue];
+    
+    NSString *returnString = [NSString stringWithFormat:@"%@ - %.01f %%",[keyArr objectAtIndex:index],percents];
     return returnString;
 }
 

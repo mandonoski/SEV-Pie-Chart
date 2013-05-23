@@ -12,6 +12,7 @@
 
 @implementation XMLParsingAppDelegate
 @synthesize nameArray, attrArray,loading,messages,fromToArray;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     loading.text = @"Loading";
