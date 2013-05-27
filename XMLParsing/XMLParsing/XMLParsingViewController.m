@@ -188,8 +188,8 @@
         [formatter setDateFormat:@"yyyyMMddHHmmss"];
         NSString *todayString = [formatter stringFromDate:[NSDate date]];
         
-        for (int i=0; i<[appDelegate.fromToArray count]; i++) {
-            NSArray *separateTime = [appDelegate.fromToArray[0] componentsSeparatedByString:@";"];
+        for (int i=0; i<=[appDelegate.fromToArray count]; i++) {
+            NSArray *separateTime = [appDelegate.fromToArray[i] componentsSeparatedByString:@";"];
             if([separateTime[0] doubleValue]<=[todayString doubleValue] && [separateTime[1] doubleValue]>=[todayString doubleValue]){
                 someTextView.text = appDelegate.messages[i];
                 [alert addSubview:someTextView];
