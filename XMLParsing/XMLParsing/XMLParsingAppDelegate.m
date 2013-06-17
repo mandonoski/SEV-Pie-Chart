@@ -11,7 +11,7 @@
 #import "XMLParsingViewController.h"
 
 @implementation XMLParsingAppDelegate
-@synthesize nameArray, attrArray,loading,messages,fromToArray;
+@synthesize nameArray, attrArray,loading,messages,fromToArray,valueArray;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -21,11 +21,11 @@
     spinner.center = CGPointMake((self.window.bounds.size.width-loading.bounds.size.width)/2, ((self.window.bounds.size.height-spinner.bounds.size.height)/3)*2+(spinner.bounds.size.height)*2.3);
     [self.window addSubview:spinner];
     [spinner startAnimating];
-    
     attrArray = [[NSMutableArray alloc] init];
     nameArray = [[NSMutableArray alloc] init];
     messages  = [[NSMutableArray alloc] init];
     fromToArray = [[NSMutableArray alloc] init];
+    valueArray = [[NSMutableArray alloc] init];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.

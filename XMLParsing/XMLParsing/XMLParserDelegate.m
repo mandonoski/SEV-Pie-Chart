@@ -13,7 +13,6 @@
 
 
 - (XMLParserDelegate *) initXMLParser {
-    
     self = [super init];
     // init array of user objects
     rows = [[NSMutableArray alloc] init];
@@ -65,11 +64,11 @@
             // This syntax is possible because User object
             // property names match the XML user element names
             [rowValues setObject:currentElementValue forKey:elementName];
+            [appDelegate.valueArray addObject:currentElementValue];
             NSLog(@"%@",rowValues);
         }
         
     }
-    
 
     
     currentElementValue = nil;

@@ -228,51 +228,32 @@
 -(void) setButtonsAndInicializeGraph{
     
     XMLParserDelegate *parser = [[XMLParserDelegate alloc] initXMLParser];
-    //Alloc and Init the Graph
+
     graph = [[CPTXYGraph alloc] initWithFrame:self.view.bounds];
     CPTGraphHostingView *hostingView = (CPTGraphHostingView *)self.view;
     hostingView.hostedGraph = graph;
     
-    //Set Display button
-    UIButton *buttonDisplay = [[UIButton alloc] init];
-    buttonDisplay.backgroundColor = [UIColor clearColor];
-    [[buttonDisplay titleLabel]setFont:[UIFont fontWithName:@"ArialMT" size:16]];
-    
-    //set time and date for past days and for current day
-    NSString *today = [parser.rowValues objectForKey:@"tiden"];
-    today = [today stringByReplacingOccurrencesOfString:@"  " withString:@""];
-    [buttonDisplay setTitle:today forState:UIControlStateNormal];
-    [buttonDisplay setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    buttonDisplay.transform = CGAffineTransformMakeScale(1, -1);
-    //Set Leita button
     UIButton *buttonLeita = [UIButton buttonWithType:UIButtonTypeCustom];
     [buttonLeita setImage:[UIImage imageNamed:@"Leita.png"] forState:UIControlStateNormal];
     [buttonLeita addTarget:self action:@selector(onBtnOpenDatePicker:) forControlEvents:UIControlEventTouchUpInside];
     [buttonLeita setFrame:CGRectMake(5, 360, 66, 34)];
     buttonLeita.transform = CGAffineTransformMakeScale(1, -1);
-    //Set Beint button
+
     UIButton *buttonBeint = [UIButton buttonWithType:UIButtonTypeCustom];
     [buttonBeint setImage:[UIImage imageNamed:@"Beint.png"] forState:UIControlStateNormal];
     [buttonBeint addTarget:self action:@selector(initFunction) forControlEvents:UIControlEventTouchUpInside];
     [buttonBeint setFrame:CGRectMake(75, 230, 66, 34)];
     buttonBeint.transform = CGAffineTransformMakeScale(1, -1);
     
-    //Check iPhone model
-    if (IS_IPHONE5) {
-        [buttonDisplay setFrame:CGRectMake(145, 310, 190, 300)];
-        [buttonLeita setFrame:CGRectMake(5, 445, 66, 34)];
+    if (IS_IPHONE5) {        [buttonLeita setFrame:CGRectMake(5, 445, 66, 34)];
         [buttonBeint setFrame:CGRectMake(75, 445, 66, 34)];
-    }else{
-        [buttonDisplay setFrame:CGRectMake(145, 230, 190, 300)];
-        [buttonLeita setFrame:CGRectMake(5, 360, 66, 34)];
+    }else{        [buttonLeita setFrame:CGRectMake(5, 360, 66, 34)];
         [buttonBeint setFrame:CGRectMake(75, 360, 66, 34)];
     }
     
-    //Displaying all UI Buttons
-    [self.view addSubview:buttonDisplay];
     [self.view addSubview:buttonLeita];
     [self.view addSubview:buttonBeint];
-
+    
 }
 
 -(void)setDatePicker{
@@ -310,10 +291,25 @@
     
     if (success) {
         
+        [self callAlertMessage];
         [self setButtonsAndInicializeGraph];
         [self setDatePicker];
         [self setSaveButton];
+        UIButton *buttonDisplay = [[UIButton alloc] init];
+        buttonDisplay.backgroundColor = [UIColor clearColor];
+        [[buttonDisplay titleLabel]setFont:[UIFont fontWithName:@"ArialMT" size:16]];
         
+        NSString *today = [parser.rowValues objectForKey:@"tiden"];
+        today = [today stringByReplacingOccurrencesOfString:@"  " withString:@""];
+        [buttonDisplay setTitle:today  forState:UIControlStateNormal];
+        [buttonDisplay setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        buttonDisplay.transform = CGAffineTransformMakeScale(1, -1);
+        if (IS_IPHONE5)
+            [buttonDisplay setFrame:CGRectMake(145, 310, 190, 300)];
+        else
+            [buttonDisplay setFrame:CGRectMake(145, 230, 190, 300)];
+        [buttonDisplay setHidden:NO];
+        [self.view addSubview:buttonDisplay];
         XMLParsingAppDelegate *appDelegate = (XMLParsingAppDelegate *)[[UIApplication sharedApplication]delegate];
         
         [self.view addSubview:datePickerView];
@@ -331,11 +327,17 @@
             [valueArr addObject:newString];
             [keyArr addObject:key];
         }
-        self.arrayForLegend = [NSArray arrayWithArray:valueArr];
-        for (NSString *_number in valueArr) {
+        keyArr = [NSMutableArray arrayWithArray:appDelegate.nameArray];
+        [keyArr removeObjectAtIndex:0];
+        keyArr = [NSMutableArray arrayWithArray:[[keyArr reverseObjectEnumerator] allObjects]];
+        
+        
+        [appDelegate.valueArray removeObjectAtIndex:0];
+        appDelegate.valueArray = [NSMutableArray arrayWithArray:[[appDelegate.valueArray reverseObjectEnumerator] allObjects]];
+        self.arrayForLegend = [NSArray arrayWithArray:appDelegate.valueArray];
+        for (NSString *_number in appDelegate.valueArray) {
             
             NSString *stringValue = [_number stringByReplacingOccurrencesOfString:@"," withString:@"."];
-            
             float floatValue = [stringValue floatValue];
             int intNumber = lroundf(floatValue);
             NSNumber *rightNumber = [NSNumber numberWithInt:intNumber];
@@ -343,17 +345,19 @@
             
         }
         
-        valueArr = self.pieData;
+        //valueArr = self.pieData;
         
         
         [self createBottomLegend];
-        
+        [appDelegate.valueArray removeAllObjects];
         if(SYSTEM_VERSION_EQUAL_TO(@"5.0")){
         appDelegate.window.hidden = YES;
         appDelegate.window.hidden = NO;
         }
-        //allert message at the begin
-        [self callAlertMessage];
+        
+        
+
+
                 
     } else {
         NSLog(@"Error parsing document!");

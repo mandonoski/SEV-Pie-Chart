@@ -24,8 +24,8 @@
     int testVariable;
     int hashIndex;
     int countNumber;
+    int nesto;
 }
-
 @property(readwrite, retain, nonatomic) NSMutableArray *pieData;
 @property (nonatomic,retain) CPTXYGraph * graph;
 @property (strong, nonatomic) NSArray *arrayForLegend;

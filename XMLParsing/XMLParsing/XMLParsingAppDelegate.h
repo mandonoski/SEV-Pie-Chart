@@ -25,5 +25,5 @@
 @property (strong, nonatomic) NSMutableArray *nameArray;
 @property (strong, nonatomic) NSMutableArray *messages;
 @property (strong, nonatomic) NSMutableArray *fromToArray;
- 
+@property (strong, nonatomic) NSMutableArray *valueArray;
 @end
